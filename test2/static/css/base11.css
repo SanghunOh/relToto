@@ -1,0 +1,47 @@
+body{
+    background-image: url(backgroundimage1.jpg);    
+    display : flex;
+    align-items: flex-end;
+    justify-content: center;
+    height: 100%;
+}
+
+.container{
+    margin: 20px auto;
+    background-color:aliceblue; 
+    display : flex;
+    flex-direction : column;
+    width : 90%;
+    height: 90%;
+    padding: 0;
+    border-bottom: solid 1px gray;
+}
+.content{
+    display : flex;
+    flex-direction : row;
+    border-bottom: solid 1px gray;
+
+}
+header{
+    width : 100%;
+    background-color: tomato;
+    color : black;
+    height: 80px;
+    text-decoration: none;
+    font-family: Lobster;
+}
+main{
+    padding: 10px;
+    width: 50%;
+    border-right: solid 1px gray;
+}
+nav{
+    border-right: solid 1px gray
+}
+.post_list content_sub{
+    text-decoration: none;
+    color: black;
+}
+.main{
+    height: 90%;
+}

@@ -1,0 +1,11 @@
+{% extends 'test2/base2.html' %}
+
+{% block content %}
+    {% for mem in newfriends %}
+        <div class="post_identity">
+            <p>
+                <img src="../media/{{ mem.my_photo }}" alt="alt"> {{ mem.identity }} : {{ mem.name }}
+            </p>
+        </div>
+    {% endfor %}
+{% endblock %}

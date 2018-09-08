@@ -1,0 +1,231 @@
+{% extends 'test2/friends_recommend.html' %}
+
+{% load static %}
+
+{% block style %}
+<style>
+    * {
+        box-sizing: border-box;
+        background-color: beige;
+    }
+    /*헤더부분*/
+    .container {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        height: 100%;
+    }
+    .header {
+        border-bottom: 1px solid #01DFD7;
+        width: 100%;
+        height: 50px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 100000;
+        background-color: white;
+    }
+    header a {
+        background-color: white;
+    }
+    header img {
+        width: 30px;
+    }
+    a{
+        text-decoration: none;
+        color: black;
+    }
+    .DaecheongMaru {
+        font-family: 'Dokdo', cursive;
+        display: inline;
+        color: black;
+        font-size: 25px;
+        background-color: white;
+        position: relative;
+        top: 0px;
+    }
+    .icon1, .icon2, .icon3, .icon4{
+        position: relative;
+        top: 7px;
+
+    }
+    .ToMain {
+        position: relative;
+        left: 125px;
+    }
+    .compass {
+        position: relative;
+        left: 750px;
+    }
+    .heart {
+        position: relative;
+        left: 762.5px;
+    }
+    .person {
+        position: relative;
+        left: 775px;
+    }
+
+        /*메인 페이지*/
+        main {
+            position: absolute;
+            top: 50px;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /*추천계정, 둘러보기*/
+        .recommend {
+            position: relative;
+            top: 50px;
+            left: 125px;
+            font-size: 13px;
+            margin: 10px;
+        }
+        .recommend nav {
+            display: block;
+            font-size: 13px;
+        }
+
+        /*추천 계정*/
+        .recom_follow {
+            column-count: 3;
+            margin-right: 30px;
+            margin-bottom: 50px;
+            column-width: 300px;
+            position: relative;
+            width: 300px;
+            height: 220px;
+            border: 1px solid #01DFD7;
+            text-align: center;
+            border-radius: 3%;
+            display: inline-flex;
+            flex-direction: column;
+        }
+
+        .recom_img {
+            position: absolute;
+            left: 112.5px;
+            width: 70px;
+            object-fit: cover;
+            border-radius: 50%;
+            top: 10px;
+        }
+       .recom_follow span {
+            position: absolute;
+            top: 110px;
+            left: 119px;
+            width: 60px;
+        }
+        .follow {
+            display: block;
+            position: relative;
+            top: 120px;
+            width: 60px;
+            left: 119px;
+        }
+
+
+</style>
+
+{% endblock %}
+
+{% block sub %}
+    <div class="container">
+          <div class="header">
+              <a href= "{% url 'home' %}" class="ToMain">
+                  <img src="{% static 'icon1.png' %}" alt="" class="icon1">
+                  <div class="DaecheongMaru">대청마루</div>
+              </a>
+              <a href="{% url 'friends_recommend' %}" class="compass">
+              <img src="{% static 'icon2.png' %}" class="icon2">
+              </a>
+              <a href="" class="heart">
+              <img src="{% static 'icon3.png' %}" class="icon3">
+              </a>
+              <a href="{% url 'my_profile' %}" class="person">
+              <img src="{% static 'icon4.png' %}" class="icon4">
+              </a>
+          </div>
+    </div>
+
+{% endblock %}
+
+{% block content %}
+        <main>
+            <div class="recommend">
+                <nav>
+                    추천계정
+                </nav>
+
+                {% for friend in newfriends %}
+                  <div class="recom_follow">
+                      <figure>
+                        <a href="">
+                          <img src="../media/do_it.jpg" class="recom_img">
+                          <span>{{ friend.identity }}</span>
+                        </a>
+                      </figure>
+                      <input type="button" class="follow" value="팔로우">
+                  </div>
+                {% endfor %}
+
+            </div>
+        </main>
+{% endblock %}
+
+<!---<body>
+    <div class="container">
+        <header>
+            <a href="main.html" class="ToMain">
+                <img src="icon1.png" alt="" class="icon1">
+                <div class="DaecheongMaru">대청마루</div>
+            </a>
+            <a href="compass.html" class="compass"><img src="icon2.png" class="icon2"></a>
+            <a href="heart.html" class="heart"><img src="icon3.png" class="icon3"></a>
+            <a href="person.html" class="person"><img src="icon4.png" class="icon4"></a>
+        </header>
+        <main>
+            <div class="recommend">
+                <nav>
+                    추천 계정
+                </nav>
+                <aside>
+                    <a href="#">모두 보기</a>
+                </aside>
+            </div>
+            <div class="recom_follow">
+                <div class="recom_follow_1">
+                    <a href="#">
+                        <img src="icon4.png">
+                        <span class="name_1">이름</span>
+                        <span class="follow_1">팔로우</span>
+                  </a>
+                </div>
+                <div class="recom_follow_2">
+                        <img src="icon4.png">
+                        <span class="name_2">이름</span>
+                        <span class="follow_2">팔로우</span>
+                </div>
+            </div>
+            <div class="browse">
+                <nav>
+                    둘러보기
+                </nav>
+                <div class="browse_image">
+                    <div>
+                        <a href="#">
+                            <img src="icon3.png" class="browse_image_1">
+                        </a>
+                        <a href="#">
+                            <img src="icon1.png" class="browse_image_2">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+-->

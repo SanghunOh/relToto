@@ -1,0 +1,58 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>대청마루</title>
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Dokdo" rel="stylesheet">
+    <meta http-equiv="Expires" content="Mon, 06 Jan 1990 00:00:01 GMT">
+    <meta http-equiv="Expires" content="-1">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+
+    <style>
+        html, body{
+            height: 100%;
+        }
+    </style>
+
+    {% block style %}
+    {% endblock %}
+
+    <link href="http://example.com/custom.css?ver=1.4" rel="stylesheet" type="text/css" />
+
+</head>
+
+
+
+<body>
+    <div class="container">
+        <header>
+                {% block sub %}
+                {% endblock %}
+        </header>
+
+        <section class="content">
+            <main>
+                {% block content %}
+                {% endblock %}
+            </main>
+            <aside>
+
+            </aside>
+
+        </section>
+
+    </div>
+    <footer>
+        {% block logout %}
+        {% endblock %}
+    </footer>
+
+</body>
+</html>

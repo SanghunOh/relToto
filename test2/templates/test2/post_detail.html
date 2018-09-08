@@ -1,0 +1,24 @@
+﻿{% extends 'test2/base3.html' %}
+
+
+
+{% block inform %}
+<div class="name_date">
+    <div class="post_publisher">
+        <img src="../../media/{{ member_info.my_photo }}" class="publisher_img">
+        <h1 class='identity'>{{ post.identity }}</h1>
+    </div>
+
+    <h5 class='date'>{{ post.created_date }}</h5>
+</div>
+
+<p>
+    {{ post.story }}
+</p>
+{% endblock %}
+
+{% block logout %}
+    <div class="header_sub">
+        <label><a href="{% url 'logout' %}"><input type="button" value="LOG OUT"></a></label>
+    </div>
+{% endblock %}

@@ -1,0 +1,181 @@
+{% extends 'test2/base3.html' %}
+
+{% load static %}
+
+{% block style %}
+<style>
+    html, body {
+        height: 100%;
+    }
+    * {
+        box-sizing: border-box;
+        background-color: #FAFAFA;
+    }
+    /*�����κ�*/
+    .container {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        height: 100%;
+    }
+
+    .header {
+        border-bottom: 1px solid #eeeeee;
+        width: 100%;
+        height: 50px;
+        position: fixed;
+        top: 0;
+        z-index: 100000;
+        background-color: white;
+    }
+
+    .header a {
+        background-color: white;
+    }
+
+    .header img {
+        width: 30px;
+    }
+
+    a {
+        text-decoration: none;
+        color: black;
+    }
+
+    .DaecheongMaru {
+        display: inline;
+        color: black;
+        font-size: 25px;
+        background-color: white;
+    }
+
+    .icon1, .icon2, .icon3, .icon4 {
+        position: relative;
+        top: 7px;
+    }
+
+    .ToMain {
+        position: relative;
+        left: 125px;
+    }
+
+    .compass {
+        position: relative;
+        left: 750px;
+    }
+
+    .heart {
+        position: relative;
+        left: 762.5px;
+    }
+
+    .person {
+        position: relative;
+        left: 775px;
+    }
+    /*���� ������*/
+    main {
+        position: absolute;
+        top: 50px;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .main_contents {
+        width: 800px;
+        height: 100%;
+    }
+</style>
+{% endblock %}
+
+{% block sub %}
+<div class="container">
+    <div class="header">
+        <a href="{% url 'home' %}" class="ToMain">
+            <img src="{% static 'icon1.png' %}" alt="" class="icon1">
+            <div class="DaecheongMaru">��û����</div>
+        </a>
+        <a href="compass.html" class="compass">
+            <img src="{% static 'icon2.png' %}" class="icon2">
+        </a>
+        <a href="heart.html" class="heart">
+            <img src="{% static 'icon3.png' %}" class="icon3">
+        </a>
+        <a href="{% url 'my_profile' %}" class="person">
+            <img src="{% static 'icon4.png' %}" class="icon4">
+        </a>
+    </div>
+    <main>
+        <div class="main_contents">
+            <div class="post">
+                <div class="post_identity">
+                    <a href="#" class="publish"><span class="post_publisher"></span></a>
+                    <span class="post_created_date"></span>
+                </div>
+                <div class="post_photo"></div>
+                <div class="post_story"></div>
+                <div class="post_published_date"></div>
+            </div>
+        </div>
+        <div class="main_inform">
+            <div class="user">
+                <a href="#">
+                    <img src="icon4.png">
+                    <span></span>
+                </a>
+            </div>
+            <div class="friends">
+            </div>
+        </div>
+    </main>
+</div>
+{% endblock %}
+
+{% block profile %}
+    <div class="id">
+       ID :
+        {{ member_infos.username }}
+    </div>
+    <div class="name">
+       name :
+        {{ member_infos.name }}
+    </div>
+    <div class="info">
+       me:
+        {{ member_infos.myinfo }}
+    </div>
+    <div class="follow">
+       follow:
+        {{ my_roles_num }}
+    </div>
+    <div class="follower">
+        follower:
+        {{ my_unders_num }}
+    </div>
+
+    <div class="for_member_info_edit">
+        <div>
+           {% if user.username == member_infos.identity.username %}
+                <a href="{% url 'member_info_edit' pk=user.pk %}">프로필 수정</a>
+            {% endif %}
+        </div>
+    </div>
+
+
+{% endblock %}
+
+{% block my_posts %}
+    {% for post in user_posts %}
+            <p>
+                {{ post.identity }}
+            </p>
+            <p>
+                {{ post.photo }}
+            </p>
+
+        {% endfor %}
+
+
+{% endblock %}

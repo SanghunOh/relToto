@@ -1,0 +1,52 @@
+{% extends 'test2/member_info__.html' %}
+
+<!------------------------------------------->
+
+{% block style %}
+    <style>
+        * {
+            background-color: beige;
+        }
+        .daecheong {
+            position: relative;
+            text-align: center;
+            top: 140px;
+            font-size: 5rem;
+            font-family: 'Dokdo', cursive;
+        }
+        .member_infoform {
+            position: relative;
+            text-align: center;
+            top: 150px;
+        }
+        input {
+            background-color: white;
+        }
+        textarea {
+            background-color: white;
+        }
+    </style>
+
+{% endblock %}
+
+<!------------------------------------------->
+{% block content %}
+
+
+<form class= "member_infoform" method="POST" enctype="multipart/form-data">{% csrf_token %}
+      {{ form.as_p }}
+      <input type="submit" class ="save btn btn-default" value="Save"/>
+      <!--<a href={{ "signup" }}><input type="button" class="signup" value="SignUp"/></a>
+  -->
+ </form>
+
+
+
+
+{% endblock %}
+
+<!------------------------------------------->
+
+{% block DaecheongMaru %}
+    <div class="daecheong">DaecheongMaru</div>
+{% endblock %}

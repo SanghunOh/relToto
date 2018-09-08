@@ -1,0 +1,45 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title대청마루</title>
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Dokdo" rel="stylesheet">
+    <link href="http://example.com/custom.css?ver=1.4" rel="stylesheet" type="text/css" />
+    <meta http-equiv="Expires" content="Mon, 06 Jan 1990 00:00:01 GMT">
+    <meta http-equiv="Expires" content="-1">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+  </head>
+  <style>
+    html , body {
+      height: 100%;
+    }
+  </style>
+
+  {% block style %}
+  {% endblock %}
+
+  <body>
+
+        <div>
+            {% block sub %}
+            {% endblock %}
+
+        </div>
+
+        <main>
+          {% block content %}
+          {% endblock %}
+          {% block my_posts %}
+          {% endblock %}
+          {% block logout %}
+          {% endblock %}
+        </main>
+
+  </body>
+</html>

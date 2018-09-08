@@ -1,0 +1,45 @@
+{% extends 'test2/signup__.html' %}
+
+{% load static %}
+
+{% block style %}
+    <style>
+        * {
+            background-color: beige;
+        }
+        .daecheong {
+            position: relative;
+            text-align: center;
+            top: 140px;
+            font-size: 5rem;
+            font-family: 'Dokdo', cursive;
+        }
+        .signform {
+            position: relative;
+            text-align: center;
+            top: 150px;
+        }
+        input {
+          background-color: white;
+        }
+    </style>
+
+{% endblock %}
+
+<!------------------------------------------->
+
+{% block content %}
+
+
+    <form class= "signform" method="POST" >{% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" class ="save btn btn-default" value="Signup"/>
+    </form>
+
+{% endblock %}
+
+<!------------------------------------------->
+
+{% block DaecheongMaru %}
+    <div class="daecheong">DaecheongMaru</div>
+{% endblock %}

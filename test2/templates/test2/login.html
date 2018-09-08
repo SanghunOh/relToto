@@ -1,0 +1,68 @@
+{% extends 'test2/index.html' %}
+
+{% block style %}
+    <style>
+        * {
+            background-color: beige;
+        }
+
+        .daecheong {
+            font-family: 'Dokdo', cursive;
+            position: relative;
+            top: 140px;
+            font-size: 5rem;
+            text-align: center;
+        }
+
+        .loginform{
+            position: relative;
+            top: 160px;
+            text-align: center;
+        }
+        input {
+            background-color: white;
+        }
+        .header_sub{
+            margin-top: 20px;
+            color : #4a4a2a;
+            position: relative;
+            text-align: center;
+            top: 150px;
+        }
+    </style>
+
+{% endblock %}
+
+<!------------------------------------------->
+
+{% block content %}
+    <div class="login_sys">
+
+     <form class= "loginform" method="POST" >{% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" class ="save btn btn-default" value="Login"/>
+        <!--<a href={{ "signup" }}><input type="button" class="signup" value="SignUp"/></a>
+    -->
+     </form>
+    </div>
+
+
+{% endblock %}
+
+<!------------------------------------------->
+
+{% block sub %}
+    {% if request.user.is_anonymous %}
+        <div class="header_sub">
+            <a href="{% url 'signup' %}"><input type="button" value="SignUp"></a>
+        </div>
+    {% else %}
+        <div class="header_sub"></div>
+    {% endif%}
+{% endblock %}
+
+<!------------------------------------------->
+
+{% block DaecheongMaru %}
+      <div class="daecheong">DaecheongMaru</div>
+{% endblock %}

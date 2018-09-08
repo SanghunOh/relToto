@@ -1,0 +1,104 @@
+{% extends 'test2/post_new__.html' %}
+
+{% load static %}
+
+{% block style %}
+<style>
+    * {
+        background-color: beige;
+    }
+    .container {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        height: 100%;
+    }
+    .header {
+        border-bottom: 1px solid #D8ECED;
+        width: 100%;
+        height: 50px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 100000;
+        background-color: white;
+    }
+    header a {
+        background-color: white;
+    }
+    header img {
+        width: 30px;
+    }
+    a{
+        text-decoration: none;
+        color: black;
+    }
+    .DaecheongMaru {
+        font-family: 'Dokdo', cursive;
+        display: inline;
+        color: black;
+        font-size: 25px;
+        background-color: white;
+        position: relative;
+        top: 0px;
+    }
+    .icon1, .icon2, .icon3, .icon4{
+        position: relative;
+        top: 7px;
+
+    }
+    .ToMain {
+        position: relative;
+        left: 125px;
+    }
+    .compass {
+        position: relative;
+        left: 750px;
+    }
+    .heart {
+        position: relative;
+        left: 762.5px;
+    }
+    .person {
+        position: relative;
+        left: 775px;
+    }
+    .post_new {
+        position: relative;
+        text-align: center;
+        top: 150px;
+    }
+</style>
+
+{% endblock %}
+
+{% block sub %}
+<div class="container">
+  <div class="header">
+      <a href= "{% url 'home' %}" class="ToMain">
+          <img src="{% static 'icon1.png' %}" alt="" class="icon1">
+          <div class="DaecheongMaru">대청마루</div>
+      </a>
+      <a href="{% url 'friends_recommend' %}" class="compass">
+      <img src="{% static 'icon2.png' %}" class="icon2">
+      </a>
+      <a href="" class="heart">
+      <img src="{% static 'icon3.png' %}" class="icon3">
+      </a>
+      <a href="{% url 'profile' pk=3 %}" class="person">
+      <img src="{% static 'icon4.png' %}" class="icon4">
+      </a>
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+
+
+  <form method='post' action='' enctype="multipart/form-data" class="post_new">
+	{% csrf_token %}
+		{{ form.as_p }}
+	<input type="submit" value="Upload">
+</form>
+
+{% endblock %}

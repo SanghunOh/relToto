@@ -1,0 +1,49 @@
+{% extends 'project/base2.html' %}    
+    
+{% block header %}      /*상단바*/
+    <a href="main.html" class="ToMain">
+    <img src="icon1.png" alt="" class="icon1">
+    <div class="DaecheongMaru">대청마루</div>
+    </a>
+    <a href="compass.html" class="compass">
+    <img src="icon2.png" class="icon2">
+    </a>
+    <a href="heart.html" class="heart">
+    <img src="icon3.png" class="icon3">
+    </a>
+    <a href="person.html" class="person">
+    <img src="icon4.png" class="icon4">
+    </a>
+{% endblock %}
+
+<!------------------------------------------->
+{% block content1 %}      /*게시글*/
+    <div class="main_contents">
+        <div class="board">
+            <div class="publisher">
+                <a href="#" class="publish"><img src="icon2.png" class="publisher_img"><span></span></a>
+            </div>
+            <div><img class="image" src="icon1.png"></div>
+            <div class="comment">
+                    
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+<!------------------------------------------->
+{% block content2 %}
+    <div class="main_inform">
+        <div class="user">
+            <a href="#">
+            <img src="icon4.png">
+            <span></span>
+            </a>
+        </div>
+        <div class="friends">
+    
+        </div>
+    </div>
+{% endblock %}
+
+<!------------------------------------------->

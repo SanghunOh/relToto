@@ -1,0 +1,300 @@
+{% extends 'test2/base2.html' %}
+
+{% load static %}
+
+{% block style %}
+        <style>
+        * {
+            box-sizing: border-box;
+            background-color: beige;
+        }
+        /*헤더부분*/
+        .container {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            height: 100%;
+        }
+        .header {
+            border-bottom: 1px solid #D8ECED;
+            width: 100%;
+            height: 50px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100000;
+            background-color: white;
+        }
+        .header a {
+            background-color: white;
+        }
+        .header img {
+            width: 30px;
+        }
+        a{
+            text-decoration: none;
+            color: black;
+        }
+        .DaecheongMaru {
+            font-family: 'Dokdo', cursive;
+            display: inline;
+            color: black;
+            font-size: 25px;
+            background-color: white;
+            position: relative;
+            top: 0px;
+        }
+        .icon1, .icon2, .icon3, .icon4{
+            position: relative;
+            top: 7px;
+
+        }
+        .ToMain {
+            position: relative;
+            left: 125px;
+        }
+        .compass {
+            position: relative;
+            left: 750px;
+        }
+        .heart {
+            position: relative;
+            left: 762.5px;
+        }
+        .person {
+            position: relative;
+            left: 775px;
+        }
+        /*메인 페이지*/
+        main {
+            position: absolute;
+            top: 50px;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .main_contents {
+            width: 800px;
+            height: 100%;
+            border-right: 1px solid #D8ECED;
+        }
+        /*게시물*/
+        .post {
+            border: 1px solid #D8ECED;
+            border-radius: 3%;
+            height: 650px;
+            position: relative;
+            left: 100px;
+            top: 100px;;
+            width: 700px;
+            margin-bottom: 100px;
+        }
+        .publisher_img {
+            width: 30px;
+            height: 30px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+        .publish {
+            position: relative;
+        }
+        .post_identity {
+            position: relative;
+            background-color: beige;
+            width: 100px;
+            top: 10px;
+            bottom: 10px;
+        }
+        .post_publisher {
+          position: relative;
+          left: 20px;
+          width: 100px;
+          background-color: beige;
+        }
+        span {
+            position: absolute;
+            left: 60px;
+            top: -16px;
+            font-size: 15px;
+        }
+        .post_created_date {
+            position: relative;
+            background-color: rgba(1,1,1,0);
+            width: 120px;
+            left: 560px;
+            font-size: 10px;
+            top:-8px;
+        }
+        .post_photo {
+            position: relative;
+            height: 540px;
+            width: 696px;
+            object-fit: contain;
+            z-index:1000;
+            left: 1px;
+            top: 0px;
+        }
+        .post_story {
+            font-size: 25px;
+            position: relative;
+            left: 20px;
+            top: 5px;
+            width: 400px;
+        }
+        .post_published_date {
+            font-size: 10px;
+            position: relative;
+            left: 20px;
+            top: 5px;
+            width: 100px;
+        }
+
+        /*스토리 부분*/
+        .main_inform {
+            position: fixed;
+            left: 880px;
+            top: 90px;
+            width: 300px;
+        }
+        .user {
+            position: relative;
+            width: 300px;
+            border: 1px solid #D8ECED;
+            height: 350px;
+            background-color: white;
+            display: inline-flex;
+            flex-direction: column;
+            border-radius: 3%;
+        }
+
+        .user a {
+            background-color: white;
+            position: relative;
+            top: 10px;
+        }
+        .user img {
+            position: absolute;
+            top: 40px;
+            left: 60px;
+            width: 180px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 50%;
+            background-color: white;
+        }
+        .user_name {
+            position: absolute;
+            width: 300px;
+            text-align: center;
+            top: 250px;
+            background-color: white;
+            font-size: 3rem;
+        }
+
+        .header_sub {
+            position: absolute;
+            position: fixed;
+            top: 10px;
+            left: 1070px;
+            z-index: 10000000000000000000;
+        }
+    </style>
+{% endblock %}
+
+{% block sub %}
+<div class="container">
+    <div class="header">
+        <a href= "{% url 'home' %}" class="ToMain">
+            <img src="{% static 'icon1.png' %}" alt="" class="icon1">
+            <div class="DaecheongMaru">대청마루</div>
+        </a>
+        <a href="{% url 'friends_recommend' %}" class="compass">
+        <img src="{% static 'icon2.png' %}" class="icon2">
+        </a>
+        <a href="" class="heart">
+        <img src="{% static 'icon3.png' %}" class="icon3">
+        </a>
+        <a href="{% url 'my_profile' %}" class="person">
+        <img src="{% static 'icon4.png' %}" class="icon4">
+        </a>
+    </div>
+    <main>
+        <div class="main_contents">
+
+                <div class="post_identity">
+                    <a href="#" class="publish"><img class="publisher_img"><span class="post_publisher"></span></a>
+                    <span class="post_created_date"></span>
+                </div>
+
+        </div>
+        <div class="main_inform">
+            <div class="user">
+                <a href="#">
+                    <img src="">
+                    <span class=""></span>
+                </a>
+            </div>
+            <div class="friends">
+            </div>
+        </div>
+
+    </main>
+</div>
+{% endblock %}
+
+{% block content %}
+    {% for post in posts %}
+      <div class="post">
+          <div class="post_identity">
+
+            <div class="post_publisher">
+              <a href="{% url 'home' %}" class="publish"><img src="../media/{{ member_info.my_photo }}" class="publisher_img">{{ post.identity }}</a>
+            </div>
+
+      </div>
+          <div class="post_created_date">
+              {{ post.created_date}}
+          </div>
+          <a href="{% url 'post_detail' pk=post.pk %}">
+                  <div class="post_photo">
+                  <img src="../media/{{ post.photo }}" width=100% height=540px>
+              </div>
+          </a>
+          <div class="post_story">
+              {{ post.story }}
+          </div>
+
+          <div class="post_published_date">
+              {{ post.published_date }}
+          </div>
+       </div>
+
+
+    {% endfor %}
+{% endblock %}
+
+{% block inform %}
+<div class="main_inform">
+    <div class="user">
+        <a href="{% url 'my_profile' %}">
+
+<!--          <img src="../media/{{ member_info.photo }}" class="user_img"><span>{{ member_info.identity }}</span>  -->
+        <img src="../media/{{ member_info.my_photo }}" class="user_img"> <div class="user_name">{{ member_info.identity }}</div>
+        </a>
+    </div>
+    {% for friend in newfriends %}
+    <div class="friend_recommend">
+
+
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
+
+
+{% block logout %}
+    <div class="header_sub">
+        <label><a href="{% url 'logout' %}"><input type="button" value="LOG OUT"></a></label>
+    </div>
+{% endblock %}

@@ -1,0 +1,65 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Team : ToTo</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+        
+        <link rel="stylesheet" href="{% static 'css/base.css' %}">   
+    </head>
+    
+    <body>
+        <div class="container">
+            <header>
+                <h2><a href="{% url 'home' %}">Team : ToTo</a></h2>               
+            </header>
+            
+            <!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+            <section class="content">
+                <nav>
+                    <h2>Games</h2>
+                    <ul>
+                        <li>스포츠</li>
+                        <ul>
+                            <li>축구</li>
+                            <li>야구</li>
+                            <li>농구</li>
+                            <li>농부</li>
+                            <li>배구</li>
+                        </ul>
+                        <li>카지노</li>
+                        <ul>
+                            <li><a href="{% url 'enter_sadari' %}">사다리</a></li>
+                            <li>달팽이경주</li>
+                            <li>바카라</li>
+                            <li>훌라</li>
+                        </ul>
+                        <li>기타</li>
+                        <ul>
+                            <li><a href="{% url 'enter_community' %}">커뮤니티</a></li>
+                        </ul>                        
+                        
+                    </ul>        
+                </nav>
+                <main>
+                    {% block content %}
+                    {% endblock %}  
+                </main>
+                <aside>
+                    
+                </aside>                                
+            </section>
+            
+            <!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+            <footer>
+                <h4>This page is only for research purposes. - Realse Project, Team ToTo -</h4>
+            </footer>
+        </div>
+    </body>    
+    
+</html>
